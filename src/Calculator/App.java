@@ -1,11 +1,14 @@
 package Calculator;//package Calculator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String Out = null;
-        double [] results = new double [10];
+        List<Double> results = new ArrayList<>();
+
         int count = 0;
 
         do {
@@ -25,18 +28,26 @@ public class App {
 
                 System.out.println("더 계산하시겠습니까? (exit 입력시 종료)");
 
-                // 결과 값을 한 칸씩 앞으로 이동시키기
-                if (count >= 10) {
-                    for (int i = 0; i < 9; i++) {
-                        results[i] = results[i + 1];
-                    }
-                    count = 9; // count를 9로 설정하여 배열의 마지막 인덱스에 저장
+//                // 1-6 결과 값을 한 칸씩 앞으로 이동시키기
+//                if (count >= 10) {
+//                    for (int i = 0; i < 9; i++) {
+//                        results[i] = results[i + 1];
+//                    }
+//                    count = 9; // count를 9로 설정하여 배열의 마지막 인덱스에 저장
+//                }
+
+                results.add(result); // 연산 결과를 ArrayList에 추가
+
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                String input = sc.nextLine();
+                if ("remove".equalsIgnoreCase(input) && !results.isEmpty()) {
+                results.remove(0); // 리스트의 첫 번째 요소 삭제
                 }
 
 
                 Out = sc.next();
 
-                results[count] = result;
+//                results[count] = result; // 배열에 결과값 저장
                 count ++;
 
         }
