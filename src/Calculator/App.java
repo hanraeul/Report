@@ -9,6 +9,8 @@ public class App {
         String Out = null;
         List<Double> results = new ArrayList<>();
 
+        int count = 0;
+
         do {
                 System.out.println("첫 번째 숫자를 입력하세요");
                 int Number1 = sc.nextInt();
@@ -42,26 +44,18 @@ public class App {
                 results.remove(0); // 리스트의 첫 번째 요소 삭제
                 }
 
-                System.out.println("저장된 연산 결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                input = sc.nextLine();
-                if ("inquiry".equalsIgnoreCase(input)) {
-                     System.out.println("저장된 연산 결과:");
-                        for (double res : results) {
-                            System.out.println(res);
-                        }
-                }
-
 
                 Out = sc.next();
 
 //                results[count] = result; // 배열에 결과값 저장
+                count ++;
 
         }
-        while (!"exit".equalsIgnoreCase(Out));
+        while (!"exit".equalsIgnoreCase(Out) && count < 10); // exit를 입력하거나
 
-//        for(int i = 0; i < count ; i++) {
-//            System.out.println("배열값" + results[i]);  // 배열에 저장된값 정상출력 확인
-//        }
+        for(int i = 0; i < count ; i++) {
+            System.out.println("배열값" + results[i]);  // 배열에 저장된값 정상출력 확인
+        }
 
     }
 
