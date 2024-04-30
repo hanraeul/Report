@@ -5,6 +5,8 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String Out = null;
+        double [] results = new double [10];
+        int count = 0;
 
         do {
                 System.out.println("첫 번째 숫자를 입력하세요");
@@ -22,19 +24,19 @@ public class App {
                 System.out.println("결과 : " + result);
 
                 System.out.println("더 계산하시겠습니까? (exit 입력시 종료)");
+
+
                 Out = sc.next();
+
+                results[count] = result;
+                count ++;
+
         }
-        while (!(Out.equals("exit")||Out.equals("EXIT")));
+        while (!"exit".equalsIgnoreCase(Out) && count < 10); // exit를 입력하거나
 
-
-
-
-
-
-
-
-
-
+        for(int i = 0; i < count ; i++) {
+            System.out.println("배열값" + results[i]);  // 배열에 저장된값 정상출력 확인
+        }
 
     }
 
