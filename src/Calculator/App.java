@@ -25,6 +25,14 @@ public class App {
 
                 System.out.println("더 계산하시겠습니까? (exit 입력시 종료)");
 
+                // 결과 값을 한 칸씩 앞으로 이동시키기
+                if (count >= 10) {
+                    for (int i = 0; i < 9; i++) {
+                        results[i] = results[i + 1];
+                    }
+                    count = 9; // count를 9로 설정하여 배열의 마지막 인덱스에 저장
+                }
+
 
                 Out = sc.next();
 
